@@ -1,3 +1,7 @@
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.ArrayList;
+
 public class Cell{
 
     // Instance Variables
@@ -5,6 +9,11 @@ public class Cell{
     private int x;
     private int y;
     private int id;
+
+    // Declare and Initialize HashMap and HashSet
+
+    private HashMap<String,Double> ChemConc = new HashMap<>();
+    private HashSet<String> SigMol = new HashSet<>();
 
     // Default Constructor
     public Cell(){
@@ -74,4 +83,12 @@ public class Cell{
         // leave blank for now
     }
 
+    // Private method to check adjacent cells and determine behavior
+    private void checkAdjCells(ArrayList<Cell> neighbors){
+        int AdjCells = neighbors.size();
+
+        if(AdjCells > 6){
+            System.out.println("The cell at (" + x + "," + y + ") has too many adjacent cells and will move away or die");
+        }
+    }
 }
